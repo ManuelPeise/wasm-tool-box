@@ -1,11 +1,10 @@
-using Microsoft.AspNetCore.ResponseCompression;
+using Web.Core.Server.StartUp;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("ToolBoxDataContext");
 
-builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
+ServiceBuilder.RegisterServices(builder.Services, connectionString);
 
 var app = builder.Build();
 
