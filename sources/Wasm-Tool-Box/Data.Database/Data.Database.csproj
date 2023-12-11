@@ -19,10 +19,15 @@
     </PackageReference>
     <PackageReference Include="MySql.Data" Version="8.2.0" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Data.Models\Data.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataSeeds\" />
   </ItemGroup>
 
 </Project>
