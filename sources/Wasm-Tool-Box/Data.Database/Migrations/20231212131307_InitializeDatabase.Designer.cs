@@ -3,6 +3,7 @@ using System;
 using Data.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Database.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20231212131307_InitializeDatabase")]
+    partial class InitializeDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,22 +134,6 @@ namespace Data.Database.Migrations
                     b.HasIndex("CredentialsId");
 
                     b.ToTable("AppUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(2023, 12, 12, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(6797),
-                            CreatedBy = "System",
-                            CredentialsId = 1,
-                            Email = "admin@devtools.com",
-                            FailedLogins = 0,
-                            FirstName = "",
-                            IsActive = true,
-                            LastName = "",
-                            UpdatedAt = new DateTime(2023, 12, 12, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(6797),
-                            UpdatedBy = "System"
-                        });
                 });
 
             modelBuilder.Entity("Data.Models.Entities.User.RoleEntity", b =>
@@ -176,28 +163,6 @@ namespace Data.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(2023, 12, 12, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(5626),
-                            CreatedBy = "System",
-                            Description = "Role: Admin",
-                            Name = "Admin",
-                            UpdatedAt = new DateTime(2023, 12, 12, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(5626),
-                            UpdatedBy = "System"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(2023, 12, 12, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(5626),
-                            CreatedBy = "System",
-                            Description = "Role: User",
-                            Name = "User",
-                            UpdatedAt = new DateTime(2023, 12, 12, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(5626),
-                            UpdatedBy = "System"
-                        });
                 });
 
             modelBuilder.Entity("Data.Models.Entities.User.UserCredentialEntity", b =>
@@ -233,20 +198,6 @@ namespace Data.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Credentials");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(2023, 12, 12, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(5994),
-                            CreatedBy = "System",
-                            ExpieresAt = new DateTime(2024, 3, 11, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(5994),
-                            Password = "UEBzc3dvcmRlYmIxN2RlZi1hZjY1LTQxOTItOTczNC1jN2NhMjI1MTk4NDc=",
-                            Salt = "ebb17def-af65-4192-9734-c7ca22519847",
-                            Token = "",
-                            UpdatedAt = new DateTime(2023, 12, 12, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(5994),
-                            UpdatedBy = "System"
-                        });
                 });
 
             modelBuilder.Entity("Data.Models.Entities.User.UserRoleEntity", b =>
@@ -281,18 +232,6 @@ namespace Data.Database.Migrations
                         .IsUnique();
 
                     b.ToTable("UserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AppuserId = 1,
-                            CreatedAt = new DateTime(2023, 12, 12, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(7144),
-                            CreatedBy = "System",
-                            RoleId = 1,
-                            UpdatedAt = new DateTime(2023, 12, 12, 13, 14, 11, 425, DateTimeKind.Utc).AddTicks(7144),
-                            UpdatedBy = "System"
-                        });
                 });
 
             modelBuilder.Entity("Data.Models.Entities.User.AppUserEntity", b =>

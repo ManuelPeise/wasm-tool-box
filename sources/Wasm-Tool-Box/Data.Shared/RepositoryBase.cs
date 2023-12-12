@@ -4,10 +4,11 @@ using System.Linq;
 using Data.Shared.Interfaces;
 using Data.Database;
 using Microsoft.EntityFrameworkCore;
+using Data.Models.Entities;
 
 namespace Data.Shared
 {
-    public class RepositoryBase<T> : IRepository<T> where T : class
+    public class RepositoryBase<T> : IRepository<T> where T : AEntity
     {
         private readonly DatabaseContext _context;
         private readonly DbSet<T> _db;
@@ -50,11 +51,11 @@ namespace Data.Shared
                 await query.FirstOrDefaultAsync(expression);
         }
 
-        public async Task<T?> Insert(T entity)
+        public async Task<KeyValuePair<int, T?>> Insert(T entity)
         {
             var entry = await _db.AddAsync(entity);
 
-            return entry.Entity;
+            return new KeyValuePair<int, T?>(entry.Entity.Id, entry.Entity);
         }
 
         public void Update(T entity)
