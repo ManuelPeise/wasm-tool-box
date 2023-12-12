@@ -17,17 +17,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Core.Server", "Web.Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Core.Client", "Web.Core\Client\Web.Core.Client.csproj", "{3FF787B3-4FF2-4190-B13A-93E55593319B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Database", "Data.Database\Data.Database.csproj", "{F1B79162-3CB6-440D-B6BB-7A9348AB74FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Database", "Data.Database\Data.Database.csproj", "{F1B79162-3CB6-440D-B6BB-7A9348AB74FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Shared", "Data.Shared\Data.Shared.csproj", "{94C18E73-C0CB-4DDD-BBD8-E68E6D821E77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Shared", "Data.Shared\Data.Shared.csproj", "{94C18E73-C0CB-4DDD-BBD8-E68E6D821E77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Models", "Data.Models\Data.Models.csproj", "{9350DD75-D5D8-436A-A002-939AA78C9B25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Models", "Data.Models\Data.Models.csproj", "{9350DD75-D5D8-436A-A002-939AA78C9B25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Enums", "Shared.Enums\Shared.Enums.csproj", "{A30ADE19-9F09-453A-9A70-08FA51560142}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Enums", "Shared.Enums\Shared.Enums.csproj", "{A30ADE19-9F09-453A-9A70-08FA51560142}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic.Shared", "Logic.Shared\Logic.Shared.csproj", "{D7444E65-0945-4DC8-A070-5171D97EF2E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic.Shared", "Logic.Shared\Logic.Shared.csproj", "{D7444E65-0945-4DC8-A070-5171D97EF2E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic.Settings", "Logic.Settings\Logic.Settings.csproj", "{BF8190AE-AAED-4E1D-8333-403C726A2EC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic.Settings", "Logic.Settings\Logic.Settings.csproj", "{BF8190AE-AAED-4E1D-8333-403C726A2EC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic.Administration", "Logic.Administration\Logic.Administration.csproj", "{B58BD831-A59C-4754-BE8E-485A3506242D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{BF8190AE-AAED-4E1D-8333-403C726A2EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF8190AE-AAED-4E1D-8333-403C726A2EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF8190AE-AAED-4E1D-8333-403C726A2EC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B58BD831-A59C-4754-BE8E-485A3506242D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B58BD831-A59C-4754-BE8E-485A3506242D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B58BD831-A59C-4754-BE8E-485A3506242D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B58BD831-A59C-4754-BE8E-485A3506242D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +86,7 @@ Global
 		{A30ADE19-9F09-453A-9A70-08FA51560142} = {CEA627A2-ACC3-4D49-9024-741DE12E5FB8}
 		{D7444E65-0945-4DC8-A070-5171D97EF2E0} = {E97C7A30-02B5-48C2-962F-C25BD31CDE0B}
 		{BF8190AE-AAED-4E1D-8333-403C726A2EC8} = {E97C7A30-02B5-48C2-962F-C25BD31CDE0B}
+		{B58BD831-A59C-4754-BE8E-485A3506242D} = {E97C7A30-02B5-48C2-962F-C25BD31CDE0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFDC2A4F-672F-4FFD-A942-244920B5F1C1}
