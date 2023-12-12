@@ -1,0 +1,32 @@
+﻿
+.login-form-container {
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 10px 10px 40px white;
+    padding: 2rem;
+    opacity: 0.5;
+}
+
+.login-input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 1.5rem;
+    color: white;
+}
+
+    .login-input:focus {
+        outline: none;
+    }
+
+.btn,
+.btn:focus,
+.btn:active,
+.btn.active {
+    outline: none;
+    border: none;
+    box-shadow: none !important;
+}

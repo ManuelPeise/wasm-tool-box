@@ -1,0 +1,10 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+.auth-page {
+    background-image: url("../img/background_sunset.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

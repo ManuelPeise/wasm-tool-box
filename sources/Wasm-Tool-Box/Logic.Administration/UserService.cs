@@ -278,13 +278,18 @@ namespace Logic.Administration
                 }
             }
 
+
             var claims = new List<Claim> {
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Name, user.Email),
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(ClaimTypes.UserData, JsonConvert.SerializeObject(user)),
-                    new Claim(ClaimTypes.Role, JsonConvert.SerializeObject(rolesOfUser)),
             };
+
+            foreach (var role in rolesOfUser)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role.Value));
+            }
 
             return claims;
         }

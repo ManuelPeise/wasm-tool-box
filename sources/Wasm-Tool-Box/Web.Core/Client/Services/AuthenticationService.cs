@@ -16,7 +16,7 @@ namespace Web.Core.Client.Services
             _localStorage = localStorage;
         }
 
-        public async Task Login(UserLoginModel loginModel)
+        public async Task<bool> Login(UserLoginModel loginModel)
         {
             var result = await _httpClient.PostAsJsonAsync("api/authentication/signin", loginModel);
 
@@ -24,15 +24,18 @@ namespace Web.Core.Client.Services
 
             if (result.StatusCode == HttpStatusCode.BadRequest || string.IsNullOrWhiteSpace(jwtToken))
             {
-                throw new Exception(await result.Content.ReadAsStringAsync());
+                return false;
             }
 
             if (result.IsSuccessStatusCode && !string.IsNullOrWhiteSpace(jwtToken))
             {
                 await _localStorage.SetItemAsync<string>("token", jwtToken);
+
+                return true;
             }
 
-            result.EnsureSuccessStatusCode();
+            return false;
+            // result.EnsureSuccessStatusCode();
         }
 
         public async Task Logout(int userId)
