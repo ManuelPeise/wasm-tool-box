@@ -16,6 +16,7 @@ namespace Web.Core.Server.StartUp
 
             services.AddScoped<ILogRepository, LogRepository>();
 
+            services.AddControllers();
             services.AddControllersWithViews();
             services.AddRazorPages();
 

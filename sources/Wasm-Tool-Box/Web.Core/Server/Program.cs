@@ -27,6 +27,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.MapControllers();
 
 app.MapRazorPages();
 app.MapControllers();

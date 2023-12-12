@@ -20,6 +20,8 @@ namespace Data.Shared
         public async Task AddMessage(LogEntity logEntity)
         {
             await _db.AddAsync(logEntity);
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IList<LogEntity>> GetAllAsync(System.Linq.Expressions.Expression<Func<LogEntity, bool>>? expression = null, bool asNoTracking = true)

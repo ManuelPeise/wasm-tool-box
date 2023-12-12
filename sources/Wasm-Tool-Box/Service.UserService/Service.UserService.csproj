@@ -7,11 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Logic.Shared\Logic.Shared.csproj" />
+    <ProjectReference Include="..\Data.Database\Data.Database.csproj" />
+    <ProjectReference Include="..\Logic.Administration\Logic.Administration.csproj" />
+    <ProjectReference Include="..\Service.Shared\Service.Shared.csproj" />
   </ItemGroup>
 
 </Project>

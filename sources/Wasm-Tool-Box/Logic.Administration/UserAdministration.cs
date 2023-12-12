@@ -5,7 +5,6 @@ using Data.Models.Extensions;
 using Data.Models.User;
 using Microsoft.AspNetCore.Http;
 using Shared.Enums.User;
-using System.Text;
 
 namespace Logic.Administration
 {
@@ -28,7 +27,7 @@ namespace Logic.Administration
                 {
                     var salt = Guid.NewGuid().ToString();
 
-                    var hashedPassword = GetHashedPassword(user.Password, salt);
+                    var hashedPassword = unitOfWork.GetHashedPassword(user.Password, salt);
 
                     if (hashedPassword == null)
                     {
@@ -58,7 +57,7 @@ namespace Logic.Administration
                     await unitOfWork.LogRepository.Insert(new LogEntity
                     {
                         Message = "Register new user failed.",
-                        ÊxMessage = exception.Message,
+                        ExMessage = exception.Message,
                         StackTrace = exception.StackTrace,
                         TimeStamp = DateTime.UtcNow,
                         Trigger = nameof(UserAdministration)
@@ -87,7 +86,7 @@ namespace Logic.Administration
                     await unitOfWork.LogRepository.Insert(new LogEntity
                     {
                         Message = "Enable or disable user failed.",
-                        ÊxMessage = exception.Message,
+                        ExMessage = exception.Message,
                         StackTrace = exception.StackTrace,
                         TimeStamp = DateTime.UtcNow,
                         Trigger = nameof(UserAdministration)
@@ -109,18 +108,7 @@ namespace Logic.Administration
 
             await unitOfWork.UserRoleRepository.Insert(new UserRoleEntity { AppuserId = userId, RoleId = roleEntity.Id });
         }
-        private string? GetHashedPassword(string password, string salt)
-        {
-            if (string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(salt))
-            {
-                return null;
-            }
-
-            var bytes = Encoding.ASCII.GetBytes(password).ToList();
-            bytes.AddRange(Encoding.ASCII.GetBytes(salt));
-
-            return Convert.ToBase64String(bytes.ToArray());
-        }
+       
 
         #endregion
     }

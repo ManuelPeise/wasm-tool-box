@@ -6,6 +6,7 @@ using Data.Shared.Interfaces;
 using Logic.Shared;
 using Logic.Shared.Interfaces;
 using Microsoft.AspNetCore.Http;
+using System.Text;
 
 namespace Logic.Administration
 {
@@ -30,6 +31,18 @@ namespace Logic.Administration
             _httpContext = httpContext;
         }
 
+        public string? GetHashedPassword(string password, string salt)
+        {
+            if (string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(salt))
+            {
+                return null;
+            }
+
+            var bytes = Encoding.ASCII.GetBytes(password).ToList();
+            bytes.AddRange(Encoding.ASCII.GetBytes(salt));
+
+            return Convert.ToBase64String(bytes.ToArray());
+        }
         #region dispose
 
         protected virtual void Dispose(bool disposing)

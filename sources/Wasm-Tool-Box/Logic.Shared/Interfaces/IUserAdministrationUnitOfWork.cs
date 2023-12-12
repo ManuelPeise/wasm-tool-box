@@ -12,6 +12,7 @@ namespace Logic.Shared.Interfaces
         public IRepository<RoleEntity> RoleRepository { get; }
         public IRepository<UserRoleEntity> UserRoleRepository { get; }
         public IRepository<LogEntity> LogRepository { get; }
+        string? GetHashedPassword(string password, string salt);
         Task Save(HttpContext httpContext);
     }
 }

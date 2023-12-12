@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data.Database\Data.Database.csproj" />
     <ProjectReference Include="..\..\Data.Shared\Data.Shared.csproj" />
+    <ProjectReference Include="..\..\Service.UserService\Service.UserService.csproj" />
     <ProjectReference Include="..\Client\Web.Core.Client.csproj" />
   </ItemGroup>
 
