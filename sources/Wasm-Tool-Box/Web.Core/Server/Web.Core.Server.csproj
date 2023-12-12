@@ -29,9 +29,5 @@
     <ProjectReference Include="..\Client\Web.Core.Client.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 
 </Project>
