@@ -1,0 +1,44 @@
+﻿<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <CascadingValue Value="UserIdentifier">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/icon-192.png" class="rounded" width="30" height="30" alt="app-icon" />
+                <span class="mx-1">My-App</span>
+            </a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbar-content"
+                    aria-controls="navbar-content"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end mx-2" id="navbar-content">
+                @if (!string.IsNullOrWhiteSpace(UserIdentifier))
+                {
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle-split text-light py-2"
+                           href="#"
+                           id="profile-dropdown"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            @UserIdentifier
+                        </a>
+                        <div class="dropdown-menu bg-dark" aria-labelledby="profile-dropdown">
+                            <a class="dropdown-item" href="auth/profile">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-item" role="button" @onclick="@OnLogout">Abmelden</div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <a href="auth/login" class="nav-item nav-link text-light">Anmelden</a>
+                }
+            </div>
+        </div>
+    </CascadingValue>
+</nav>

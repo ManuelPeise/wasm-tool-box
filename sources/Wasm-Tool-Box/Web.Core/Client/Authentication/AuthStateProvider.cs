@@ -3,16 +3,16 @@ using System.Security.Claims;
 using Web.Core.Client.Services.Interfaces;
 using System.Text.Json;
 using Blazored.LocalStorage;
+using Shared.Interfaces.User;
 
 namespace Web.Core.Client.Authentication
 {
     public class AuthStateProvider : AuthenticationStateProvider
     {
-        private readonly IAuthenticationService _authenticationService;
         private readonly ILocalStorageService _localStorage;
-        public AuthStateProvider(IAuthenticationService authenticationService, ILocalStorageService localStorage)
+
+        public AuthStateProvider(ILocalStorageService localStorage) : base()
         {
-            _authenticationService = authenticationService;
             _localStorage = localStorage;
         }
 
@@ -26,15 +26,22 @@ namespace Web.Core.Client.Authentication
             }
 
             var identity = new ClaimsIdentity(ParseClaimsFromJwt(token), "jwt");
-            
+
             var user = new ClaimsPrincipal(identity);
 
             var state = new AuthenticationState(user);
-            
+
             NotifyAuthenticationStateChanged(Task.FromResult(state));
 
             return state;
 
+        }
+
+        public void EnsureLogoutStateChanged()
+        {
+            var state = new AuthenticationState(new ClaimsPrincipal());
+
+            NotifyAuthenticationStateChanged(Task.FromResult(state));
         }
 
         #region copied from: https://github.com/SteveSandersonMS/presentation-2019-06-NDCOslo/blob/master/demos/MissionControl/MissionControl.Client/Util/ServiceExtensions.cs

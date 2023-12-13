@@ -10,6 +10,7 @@ namespace Web.Core.Client.Services
     {
         private readonly HttpClient _httpClient;
         private readonly ILocalStorageService _localStorage;
+
         public AuthenticationService(HttpClient client, ILocalStorageService localStorage)
         {
             _httpClient = client;
@@ -29,24 +30,34 @@ namespace Web.Core.Client.Services
 
             if (result.IsSuccessStatusCode && !string.IsNullOrWhiteSpace(jwtToken))
             {
-                await _localStorage.SetItemAsync<string>("token", jwtToken);
+                await _localStorage.SetItemAsync("token", jwtToken);
 
                 return true;
             }
 
             return false;
-            // result.EnsureSuccessStatusCode();
         }
 
-        public async Task Logout(int userId)
+        public async Task<bool> Logout(int userId)
         {
             var result = await _httpClient.PostAsync($"api/authentication/signout?userid={userId}", null);
 
             if (result.IsSuccessStatusCode)
             {
-                await _localStorage.SetItemAsync<string>("token", "");
+                var response = await result.Content.ReadAsStringAsync();
+
+                if (bool.TryParse(response, out var success))
+                {
+                    if (success)
+                    {
+                        await _localStorage.SetItemAsync<string>("token", "");
+                    }
+                }
+
+                return success;
             }
-            result.EnsureSuccessStatusCode();
+
+            return false;
         }
     }
 }

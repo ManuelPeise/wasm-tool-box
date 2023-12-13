@@ -27,11 +27,13 @@ namespace Service.UserService.Controllers
         }
 
         [HttpPost(Name = "SignOut")]
-        public async Task SignOut([FromQuery] int userId)
+        public async Task<bool> SignOut([FromQuery] int userId)
         {
             using (var userService = new Logic.Administration.UserService(_context, this.HttpContext, _configuration))
             {
-                await userService.LogOutAsync(userId);
+                var result = await userService.LogOutAsync(userId);
+
+                return result;
             }
         }
     }

@@ -1,16 +1,8 @@
 ﻿@page "/"
 
-
-@attribute [Authorize(Roles = "User")]
-<PageTitle>Index</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
-<AuthorizeView>
-    <Authorized>
-        <label>Hello <span style="font-size: 2rem; font-weight:bolder;">@context.User.Identity.Name</span></label>
-    </Authorized>
-</AuthorizeView>
+<div class="container-fluid justify-content-center align-content-center p-0 vh-100 vw-100">
+    <AppBar LogoutCallback="@OnLogout" />
+    <div class="container-fluid d-flex justify-content-center">
+        <label><span style="font-size: 2rem; font-weight:bolder;">Welcome</span></label>
+    </div>
+</div>

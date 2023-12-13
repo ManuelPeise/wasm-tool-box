@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -139,7 +137,7 @@ namespace Logic.Administration
 
             return token;
         }
-        public async Task LogOutAsync(int userId)
+        public async Task<bool> LogOutAsync(int userId)
         {
             using (var unitOfWork = new UserAdministrationUnitOfWork(_context, _httpContext))
             {
@@ -165,6 +163,8 @@ namespace Logic.Administration
 
                     await unitOfWork.Save(_httpContext);
 
+                    return true;
+
                 }
                 catch (Exception exception)
                 {
@@ -176,6 +176,8 @@ namespace Logic.Administration
                         TimeStamp = DateTime.UtcNow,
                         Trigger = nameof(UserService)
                     });
+
+                    return false;
                 }
             }
         }

@@ -20,7 +20,7 @@ namespace Web.Core.Client.Pages.Shared.Forms
         {
             if (await AuthService.Login(LoginModel))
             {
-                NavigationManager.NavigateTo(RedeirctUri ?? "/");
+                NavigationManager.NavigateTo(RedeirctUri ?? "/", true);
             }
         }
     }
