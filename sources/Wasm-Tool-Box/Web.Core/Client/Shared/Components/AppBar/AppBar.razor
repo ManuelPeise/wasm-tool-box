@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
                 <img src="/icon-192.png" class="rounded" width="30" height="30" alt="app-icon" />
-                <span class="mx-1">My-App</span>
+                <span class="mx-1">My-App - @PageTitle</span>
             </a>
             <button class="navbar-toggler"
                     type="button"
@@ -28,7 +28,7 @@
                             @UserIdentifier
                         </a>
                         <div class="dropdown-menu bg-dark" aria-labelledby="profile-dropdown">
-                            <a class="dropdown-item" href="auth/profile">Profile</a>
+                            <a class="dropdown-item" href="user/profile">Profile</a>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-item" role="button" @onclick="@OnLogout">Abmelden</div>
                         </div>

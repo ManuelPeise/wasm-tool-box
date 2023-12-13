@@ -1,0 +1,12 @@
+﻿.form-control,
+.form-control:focus,
+.form-control:active {
+    color: blue !important;
+    box-shadow: none !important;
+}
+
+.btn,
+.btn:focus,
+.btn:active {
+    box-shadow: none !important;
+}

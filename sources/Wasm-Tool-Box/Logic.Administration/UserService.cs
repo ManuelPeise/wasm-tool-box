@@ -226,7 +226,13 @@ namespace Logic.Administration
             {
                 try
                 {
-                    var credentials = await unitOfWork.UserCredentialRepository.GetFirstOrDefaultAsync(x => x.Id == passwordModel.CredentialId);
+                    var user = await unitOfWork.UserRepository.GetFirstOrDefaultAsync(x => x.Id == passwordModel.UserId, false);
+
+                    if(user == null) 
+                    {
+                        return;
+                    }
+                    var credentials = await unitOfWork.UserCredentialRepository.GetFirstOrDefaultAsync(x => x.Id == user.CredentialsId);
 
                     if (credentials == null || credentials.Salt == null || credentials.Password == null)
                     {

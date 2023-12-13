@@ -2,6 +2,7 @@
 using Data.Models.User;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Service.Shared;
 
 namespace Service.UserService.Controllers

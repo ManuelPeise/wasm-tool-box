@@ -9,7 +9,12 @@ namespace Web.Core.Client.Shared.Components.AppBar
    
         [Parameter]
         public EventCallback<int> LogoutCallback { get; set; }
+
+        [Parameter]
+        public string PageTitle { get; set; }
+
         public string? UserIdentifier { get; set; }
+
 
         [CascadingParameter]
         private Task<AuthenticationState> AuthenticationStateTask { get; set; }

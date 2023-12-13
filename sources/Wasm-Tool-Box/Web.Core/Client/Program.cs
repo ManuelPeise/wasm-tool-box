@@ -25,6 +25,9 @@ builder.Services.AddBlazoredLocalStorage(config =>
 });
 
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped(typeof(IValidationService<>), typeof(ValidationService<>));
+
 builder.Services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
 
 builder.Services.AddAuthorizationCore();
