@@ -1,0 +1,19 @@
+﻿<div class="offcanvas offcanvas-start bg-dark"
+     tabindex="-1"
+     id="side-menu"
+     data-bs-scroll="true"
+     aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h3 class="offcanvas-title">@_sideMenu.Header</h3>
+        <button class="btn" data-bs-dismiss="offcanvas">
+            <i class="bi bi-backspace text-light"></i>
+        </button>
+    </div>
+    <hr />
+    <div class="offcanvas-body">
+        @foreach(var item in _sideMenu.MenuItems)
+        {
+            <SideMenuItem ItemModel="item"/>
+        }
+    </div>
+</div>

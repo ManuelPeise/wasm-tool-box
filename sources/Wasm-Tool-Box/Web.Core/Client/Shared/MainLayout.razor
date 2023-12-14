@@ -1,5 +1,9 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="container-fluid p-0 vh-100">
-    @Body
+<div id="page-container" class="">
+    <SideMenu/>
+    <div id="page-content" class="container-fluid p-0 vh-100">
+        @Body
+    </div>
 </div>
+

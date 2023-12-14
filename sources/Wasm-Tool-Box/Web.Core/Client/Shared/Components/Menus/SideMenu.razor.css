@@ -1,0 +1,36 @@
+﻿hr {
+    opacity: 1;
+    height: 0px;
+    padding:0;
+    margin:0;
+    /* Set the hr color */
+    color: #ffffff;
+    background-color: #ffffff !important;
+}
+
+.offcanvas {
+    background-color: #000000 !important;
+    opacity: 1;
+}
+
+.offcanvas-header {
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+.offcanvas-title {
+    color: #ffffff;
+}
+
+.bi {
+    font-size: 1.5rem;
+}
+
+    .bi:hover {
+        color: #808080 !important;
+    }
+
+.offcanvas-body {
+    margin: 0 !important;
+    padding: 0 !important;
+}

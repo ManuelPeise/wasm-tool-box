@@ -12,3 +12,25 @@
         background-color: #212529;
         color: lightgray !important;
     }
+
+.btn,
+.btn:active,
+.btn:focus {
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+    .btn:hover {
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+
+.bi {
+    font-size: 1.5rem;
+}
+
+    .bi:hover {
+        color: #808080 !important;
+    }
