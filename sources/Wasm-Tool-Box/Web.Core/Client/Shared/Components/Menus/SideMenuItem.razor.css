@@ -1,0 +1,31 @@
+﻿.row {
+    padding: 0px 0px 0px 0px;
+}
+
+    .row:hover {
+        cursor: pointer;
+        background-color: #181c19 !important;
+    }
+
+.row .col {
+    display: flex;
+    align-items: center;
+}
+
+    .row .col i {
+        margin: 5px 0 0 15px;
+        font-size: 2rem;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    .row .col label {
+        font-size: 1.5em !important;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+.collapse {
+    padding: 0;
+    margin: 0;
+}

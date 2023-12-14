@@ -1,0 +1,24 @@
+﻿.spinner-container {
+    display: flex;
+    align-items: center;
+    height: 50vh;
+    background-color: yellow;
+}
+
+.spinner-inner,
+.spinner-outer {
+    position: absolute;
+}
+
+.spinner-inner {
+    width: 5rem !important;
+    height: 5rem !important;
+    margin-left: .25rem;
+    color: #ffff00 !important;
+}
+
+.spinner-outer {
+    width: 5.5rem !important;
+    height: 5.5rem !important;
+    color: #ff0000 !important;
+}

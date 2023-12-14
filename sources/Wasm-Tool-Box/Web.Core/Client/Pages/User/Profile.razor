@@ -1,0 +1,20 @@
+﻿@page "/user/profile"
+@layout MainLayout
+@attribute [Authorize(Roles = "Admin")]
+
+<div class="">
+    <AppBar LogoutCallback="@OnLogout" PageTitle="Profil" />
+
+    @if (_isLoading)
+    {
+        <div class="container-fluid vw-100 h-100 d-flex justify-content-center align-items-center">
+            <Spinner />
+        </div>
+    }
+    else
+    {
+        <div class="container p-4">
+            <ProfileForm Profile="ProfileData" UserId="_userId" />
+        </div>
+    }
+</div>
